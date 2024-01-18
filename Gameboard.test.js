@@ -3,14 +3,14 @@ import Gameboard from "./Gameboard";
 test('Ship exists on (x, y)', () => {
   const testBoard = new Gameboard();
   testBoard.placeShip(0, 2, 5);
-  expect(testBoard.board[0][2]).not.toBeNull();
+  expect(testBoard.gameGrid[0][2]).not.toBeNull();
 });
 
 test('receiveAttack() hits ship and numOfHits increments', () => {
   const testBoard = new Gameboard();
   testBoard.placeShip(0, 0, 5);
   testBoard.receiveAttack(0, 0);
-  expect(testBoard.board[0][0].numOfHits).toBeGreaterThan(0);
+  expect(testBoard.gameGrid[0][0].numOfHits).toBeGreaterThan(0);
 });
 
 test('receiveAttack() misses, missedShots increments', () => {
