@@ -3,17 +3,18 @@ import Ship from './Ship';
 class Gameboard {
   constructor() {
     this.gameGrid = [];
-    this.missedShots = [];
+    this.receivedShots = [];
     this.initialize();
   };
 
   initialize() {
+    this.shotsReceived = 0;
     for (let i = 0; i < 10; i++) {
       this.gameGrid[i] = [];
-      this.missedShots[i] = [];
+      this.receivedShots[i] = [];
       for (let j = 0; j < 10; j++) {
         this.gameGrid[i][j] = null;
-        this.missedShots[i][j] = false;
+        this.receivedShots[i][j] = null;
       }
     }
   };
@@ -26,9 +27,11 @@ class Gameboard {
   receiveAttack(x, y) {
     if (this.gameGrid[x][y] != null) {
       this.gameGrid[x][y].hit();
+      this.receivedShots[x][y] = 'hit';
     } else {
-      this.missedShots[x][y] = true;
+      this.receivedShots[x][y] = 'miss';
     }
+    this.shotsReceived++;
   };
 
   areAllShipsSunk() {

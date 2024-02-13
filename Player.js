@@ -1,6 +1,6 @@
 import Gameboard from "./Gameboard";
 
-class Player {
+export class Player {
   constructor(name) {
     this.name = name;
     this.playerBoard = new Gameboard();
@@ -11,4 +11,18 @@ class Player {
   }
 }
 
-export default Player;
+export class Computer extends Player {
+  constructor() {
+    super('Computer');
+  }
+
+  roll() {
+    return Math.floor(Math.random() * 9);
+  }
+
+  attack(enemyBoard) {
+    let x = this.roll();
+    let y = this.roll();
+    enemyBoard.receiveAttack(x, y);
+  }
+}

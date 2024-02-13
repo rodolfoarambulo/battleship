@@ -1,4 +1,4 @@
-import Player from "./Player";
+import { Player } from "./Player";
 
 test("Player 2 should receive attack from Player 1's attack()", () => {
   const player1 = new Player('Joe');

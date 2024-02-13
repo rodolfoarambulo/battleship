@@ -17,7 +17,7 @@ test('receiveAttack() misses, missedShots increments', () => {
   const testBoard = new Gameboard();
   testBoard.placeShip(1, 0, 5);
   testBoard.receiveAttack(0, 0);
-  expect(testBoard.missedShots[0][0]).toBeTruthy();
+  expect(testBoard.receivedShots[0][0]).toBeTruthy();
 });
 
 test('areAllShipsSunk() returns true if all ship.sunk are true', () => {
